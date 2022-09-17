@@ -1,0 +1,29 @@
+Name: Simon Raviv
+
+1. The MLP network doesn't show better results on the language identification task at hand.
+   Adding hidden layer in the MLP with a non linear layer should improve the results
+   of a classification task when the data is not linearly separable.
+   It looks like the data with is linearly separable, and this is why the log linear network is able
+   to get the same results.
+
+2. Both Log linear and MLP models are able to get ~70 [%] using unigrams
+   vs ~87[%] using bigrams accuracy on the dev set.
+   We can see that bigrams features are better features for the language identification task.
+
+3. The answer depends on hyper parameters tuning of the network, e.g. the number of hidden layers,
+   the number of neurons in each layer, the number of epochs, the learning rate, etc.
+   I was able to reach without too much tuning with the following parameters the solution with 16 iterations.
+   The fitting is available in train_mlp1.py module at the fit function, set xor_data variable to True to see the results.
+
+    Parameters:
+    activation_function: tanh
+    in_dim = 2
+    out_dim = 2
+    hid_dim = 5
+    num_iterations = 25
+    learning_rate = 0.1
+
+General ## Note:
+Using other features, e.g. trigrams, and bigger vocabulary size its possible to get a better result.
+This is since trigrams are better features for the language identification task, when enough data is available.
+
